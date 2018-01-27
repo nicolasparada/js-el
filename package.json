@@ -1,6 +1,6 @@
 {
 	"name": "@nicolasparada/el",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "Utility to create HTMLElements",
 	"main": "el.js",
 	"directories": {
