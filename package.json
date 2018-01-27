@@ -1,10 +1,10 @@
 {
 	"name": "@nicolasparada/el",
 	"version": "0.1.0",
-	"description": "Create HTMLElements with ease",
+	"description": "Utility to create HTMLElements",
 	"main": "el.js",
 	"directories": {
-		"example": "example"
+		"example": "examples"
 	},
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
