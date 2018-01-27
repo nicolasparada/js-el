@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example</title>
+    <link rel="shortcut icon" href="data:,">
+    <style>
+        :root {
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        *,
+        ::before,
+        ::after {
+            box-sizing: inherit;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        .container {
+            margin: 0 auto;
+            max-width: 65ch;
+            width: calc(100% - 4rem);
+        }
+
+        form,
+        ul {
+            margin: 1rem 0;
+        }
+
+        button,
+        input {
+            color: inherit;
+            font: inherit;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        li span {
+            cursor: default;
+            min-height: 3rem;
+        }
+
+        li.done span {
+            text-decoration: line-through;
+            opacity: .75;
+        }
+
+    </style>
+    <script type="module">
+        import el from 'https://unpkg.com/@nicolasparada/el'
+
+        let input
+        let list
+
+        function onSubmit(ev) {
+            ev.preventDefault()
+            list.insertBefore(renderTodo(input.value), list.firstChild)
+            input.value = ''
+            input.focus()
+        }
+
+        function onToggle(ev) {
+            ev.currentTarget.parentNode.classList.toggle('done')
+        }
+
+        function onRemove(ev) {
+            ev.currentTarget.parentNode.remove()
+        }
+
+        const renderTodo = text => el('li', undefined, [
+            el('span', { onClick: onToggle }, text),
+            el('button', { onClick: onRemove, 'aria-label': 'Remove' }, '🗑️'),
+        ])
+
+        document.body.appendChild(el('div', { className: 'container' }, [
+            el('form', { onSubmit }, [
+                el('input', { ref: el => input = el, type: 'text', placeholder: 'To do', autofocus: true, required: true }),
+                el('button', { type: 'submit' }, 'Add'),
+            ]),
+            el('ul', { ref: el => list = el })
+        ]))
+    </script>
+</head>
+<body></body>
+</html>

@@ -1,0 +1,30 @@
+{
+	"name": "@nicolasparada/el",
+	"version": "0.1.0",
+	"description": "Create HTMLElements with ease",
+	"main": "el.js",
+	"directories": {
+		"example": "example"
+	},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/nicolasparada/el.git"
+	},
+	"keywords": [
+		"html",
+		"element",
+		"tag"
+	],
+	"author": "Nicolás Parada <parada.nicolas@outlook.com>",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/nicolasparada/el/issues"
+	},
+	"homepage": "https://github.com/nicolasparada/el#readme",
+	"files": [
+		"el.js"
+	]
+}
