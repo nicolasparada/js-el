@@ -10,8 +10,8 @@ Load it from [unpkg.com](https://unpkg.com/@nicolasparada/el).
 import el from 'https://unpkg.com/@nicolasparada/el'
 
 const p = el('p', undefined, 'Hello, world!')
-console.log(p instanceof HTMLParagraphElement) // true
-console.log(p.textContent === 'Hello, world!') // true
+console.assert(p instanceof HTMLParagraphElement)
+console.assert(p.textContent === 'Hello, world!')
 document.body.appendChild(p)
 
 let button
@@ -21,12 +21,12 @@ function onclick(ev) {
 const div = el('div', { className: 'container' }, [
     el('button', { ref: el => button = el, onclick }, 'Click me'),
 ])
-console.log(div instanceof HTMLDivElement) // true
-console.log(div.className === 'container') // true
-console.log(div.childNodes.length === 1) // true
-console.log(button instanceof HTMLButtonElement) // true
-console.log(button.onclick === onclick) // true
-console.log(button.textContent === 'Click me') // true
+console.assert(div instanceof HTMLDivElement)
+console.assert(div.className === 'container')
+console.assert(div.childNodes.length === 1)
+console.assert(button instanceof HTMLButtonElement)
+console.assert(button.onclick === onclick)
+console.assert(button.textContent === 'Click me')
 document.body.appendChild(div)
 ```
 
