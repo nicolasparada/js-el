@@ -9,7 +9,7 @@ const flatten = arr => arr.reduce((flat, item) => flat.concat(Array.isArray(item
  *
  * @param {string} tagName
  * @param {{}=} props
- * @param {...(string|string[]|HTMLElement|HTMLElement[])} children
+ * @param {...(string|string[]|Node|Node[])} children
  * @returns {HTMLElement}
  */
 export default function el(tagName, props, ...children) {
