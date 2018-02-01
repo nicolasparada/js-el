@@ -24,7 +24,7 @@ export default function el(tagName, props, ...children) {
             } else if (propName === 'ref' && typeof propValue === 'function') {
                 propValue(el)
             } else if (propName.startsWith('on') && typeof propValue === 'function') {
-                el.addEventListener(propName.toLowerCase().substr(2), propValue)
+                el.addEventListener(propName.substr(2).toLowerCase(), propValue)
             } else if (propValue === true) {
                 el.setAttribute(propName, '')
             } else if (propValue !== false && propValue !== undefined && propValue !== null) {
