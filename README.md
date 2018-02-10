@@ -35,7 +35,7 @@ function el(tagName, props, ...children)
 ```
 
 - `tagName`: is a `string` with the `HTMLElement` tag name to create.
-- `props`: is a `Object` mix with properties and attributes to set. The special `ref` prop comes handy to save a reference to the element. You can attach a listener to a custom event, but remember it needs to start with `on` and it will be lowercased.
+- `props`: is a `Object` mix with properties and attributes to set. The special `ref` prop comes handy to save a reference to the element. You can attach a listener to a custom event prefixing the event name with 'on-' ex: `{ 'on-someCustomEvent': onSomeCustomEvent }`.
 - `children`: is variadic; this argument will be flatten so you can pass a comma separated list of children, an array or a mix of those two. Each child can be of type `Node` or `string`.
 
 This function will return an instance of `HTMLElement`.
