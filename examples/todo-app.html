@@ -52,6 +52,7 @@
         li span {
             cursor: default;
             min-height: 3rem;
+            user-select: none;
         }
 
         li.done span {
@@ -66,28 +67,28 @@
         let input
         let list
 
-        function onSubmit(ev) {
+        function submitHandler(ev) {
             ev.preventDefault()
             list.insertBefore(renderTodo(input.value), list.firstChild)
             input.value = ''
             input.focus()
         }
 
-        function onToggle(ev) {
+        function toggleHandler(ev) {
             ev.currentTarget.parentNode.classList.toggle('done')
         }
 
-        function onRemove(ev) {
+        function removeHandler(ev) {
             ev.currentTarget.parentNode.remove()
         }
 
         const renderTodo = text => el('li', undefined, [
-            el('span', { onClick: onToggle }, text),
-            el('button', { onClick: onRemove, 'aria-label': 'Remove' }, '🗑️'),
+            el('span', { onclick: toggleHandler }, text),
+            el('button', { onclick: removeHandler, 'aria-label': 'Remove' }, '🗑️'),
         ])
 
         document.body.appendChild(el('div', { className: 'container' }, [
-            el('form', { onSubmit }, [
+            el('form', { onsubmit: submitHandler }, [
                 el('input', { ref: el => input = el, type: 'text', placeholder: 'To do', autofocus: true, required: true }),
                 el('button', { type: 'submit' }, 'Add'),
             ]),
