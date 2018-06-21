@@ -70,7 +70,7 @@
         const app = el('div', { className: 'container' }, [
             el('form', { onsubmit: onSubmit }, [
                 el('input', { ref: inputRef, type: 'text', placeholder: 'To do', autofocus: true, required: true }),
-                el('button', { type: 'submit' }, 'Add'),
+                el('button', undefined, 'Add'),
             ]),
             el('ul', { ref: listRef })
         ])
