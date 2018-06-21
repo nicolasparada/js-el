@@ -1,17 +1,17 @@
 {
 	"name": "@nicolasparada/el",
-	"version": "0.2.0",
-	"description": "Utility to create HTMLElements",
-	"main": "el.js",
-	"directories": {
-		"example": "examples"
-	},
+	"version": "0.3.0",
+	"description": "Utility to create HTML elements",
+	"browser": "el.js",
+	"files": [
+		"el.js"
+	],
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/nicolasparada/el.git"
+		"url": "https://github.com/nicolasparada/el.git"
 	},
 	"keywords": [
 		"html",
@@ -23,8 +23,5 @@
 	"bugs": {
 		"url": "https://github.com/nicolasparada/el/issues"
 	},
-	"homepage": "https://github.com/nicolasparada/el#readme",
-	"files": [
-		"el.js"
-	]
+	"homepage": "https://github.com/nicolasparada/el#readme"
 }

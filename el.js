@@ -8,7 +8,7 @@ const flatten = arr => arr.reduce((flat, item) => flat.concat(Array.isArray(item
  * Creates an HTMLElement with the given tag, props and children.
  *
  * @param {string} tagName
- * @param {{any: any}=} props
+ * @param {{[x: string]: any}=} props
  * @param {...(string|string[]|Node|Node[])} children
  * @returns {HTMLElement}
  */
@@ -23,11 +23,11 @@ export default function el(tagName, props, ...children) {
                 } catch (_) { }
             } else if (propName === 'ref' && typeof propValue === 'function') {
                 propValue(el)
-            } else if (propName.startsWith('on-') && typeof propValue === 'function') {
-                el.addEventListener(propName.substr(3), propValue)
+            } else if (propName.startsWith('on') && typeof propValue === 'function') {
+                el.addEventListener(propName.substr(2), propValue)
             } else if (propValue === true) {
                 el.setAttribute(propName, '')
-            } else if (propValue !== false && propValue !== undefined && propValue !== null) {
+            } else if (propValue !== undefined && propValue !== null) {
                 el.setAttribute(propName, String(propValue))
             }
         }
