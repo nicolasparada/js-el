@@ -14,12 +14,6 @@ let button
 const div = el('div', { className: 'container' }, [
     el('button', { ref: buttonRef, onclick }, 'Click me'),
 ])
-console.assert(div instanceof HTMLDivElement)
-console.assert(div.className === 'container')
-console.assert(div.childNodes.length === 1)
-console.assert(button instanceof HTMLButtonElement)
-console.assert(button.onclick === onclick)
-console.assert(button.textContent === 'Click me')
 
 function buttonRef(el) {
     button = el
@@ -28,6 +22,13 @@ function buttonRef(el) {
 function onclick(ev) {
     console.log('Click', ev)
 }
+
+console.assert(div instanceof HTMLDivElement)
+console.assert(div.className === 'container')
+console.assert(div.childNodes.length === 1)
+console.assert(button instanceof HTMLButtonElement)
+console.assert(button.onclick === onclick)
+console.assert(button.textContent === 'Click me')
 ```
 
 ```js
