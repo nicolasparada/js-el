@@ -1,6 +1,6 @@
 # [`@nicolasparada/el`](https://npm.im/@nicolasparada/el)
 
-Utility to create HTML elements with ease. Inspired in `React.createElement` but for actual DOM.
+Utility to create HTML elements with ease. Inspired in `React.createElement`, but for actual DOM. It has nothing to do with rendering or diffing.
 
 ## Usage
 
