@@ -9,7 +9,7 @@ const flatten = arr => arr.reduce((flat, item) => flat.concat(Array.isArray(item
  *
  * @param {string} tagName
  * @param {{[x: string]: any}=} props
- * @param {...(string|string[]|Node|Node[])} children
+ * @param {...any} children
  * @returns {HTMLElement}
  */
 export default function el(tagName, props, ...children) {
@@ -34,10 +34,10 @@ export default function el(tagName, props, ...children) {
     }
     if (children.length !== 0) {
         for (const child of flatten(children)) {
-            if (typeof child === 'string') {
-                el.appendChild(document.createTextNode(child))
-            } else if (child instanceof Node) {
+            if (child instanceof Node) {
                 el.appendChild(child)
+            } else if (child !== false && child !== null && child !== undefined) {
+                el.appendChild(document.createTextNode(String(child)))
             }
         }
     }
