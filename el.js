@@ -15,20 +15,19 @@ const flatten = arr => arr.reduce((flat, item) => flat.concat(Array.isArray(item
 export default function el(tagName, props, ...children) {
     const el = document.createElement(tagName)
     if (typeof props === 'object' && props !== null) {
-        // @ts-ignore
-        for (const [propName, propValue] of Object.entries(props)) {
-            if (propName in el) {
+        for (const [prop, val] of Object.entries(props)) {
+            if (prop in el) {
                 try {
-                    el[propName] = propValue
+                    el[prop] = val
                 } catch (_) { }
-            } else if (propName === 'ref' && typeof propValue === 'function') {
-                propValue(el)
-            } else if (propName.startsWith('on') && typeof propValue === 'function') {
-                el.addEventListener(propName.substr(2), propValue)
-            } else if (propValue === true) {
-                el.setAttribute(propName, '')
-            } else if (propValue !== undefined && propValue !== null) {
-                el.setAttribute(propName, String(propValue))
+            } else if (prop === 'ref' && typeof val === 'function') {
+                val(el)
+            } else if (prop.startsWith('on') && typeof val === 'function') {
+                el.addEventListener(prop.substr(2), val)
+            } else if (val === true) {
+                el.setAttribute(prop, '')
+            } else if (val !== undefined && val !== null) {
+                el.setAttribute(prop, String(val))
             }
         }
     }
