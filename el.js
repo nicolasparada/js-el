@@ -19,8 +19,10 @@ export default function el(tagName, props, ...children) {
             if (prop in el) {
                 try {
                     el[prop] = val
+                    continue
                 } catch (_) { }
-            } else if (prop === 'ref' && typeof val === 'function') {
+            }
+            if (prop === 'ref' && typeof val === 'function') {
                 val(el)
             } else if (prop.startsWith('on') && typeof val === 'function') {
                 el.addEventListener(prop.substr(2), val)
